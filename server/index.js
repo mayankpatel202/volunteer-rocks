@@ -16,12 +16,8 @@ const app = express();
 
 app.use(express.json());
 app.use(express.static(__dirname + '/../client/dist'));
-app.use(session({
-  secret: 'Is it really a secret',
-  cookie: {
-    maxAge: 365 * 24 * 60 * 60
-  }
-}));
+
+app.use(session({secret: 'Is it really a secret', cookie:{maxAge: 365*24*60*60, _expires: false}}));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(cookieParser());
@@ -110,7 +106,9 @@ app.post('/login', (req, res) => {
   checkdb.checkUserCredential(req.body, res, session, req);
 });
 
-app.get('/logout', function (req, res) {
+
+app.get('/logout', function(req, res) {
+  req.session.destroy();
   req.logout();
   req.session.destroy();
   res.redirect('/');

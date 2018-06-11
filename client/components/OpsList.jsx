@@ -16,13 +16,40 @@ class OpsList extends React.Component {
     }
   }
 
+<<<<<<< HEAD
   changeView(option) {
+=======
+
+   changeView(option) {
+>>>>>>> rebasing
     if (this.state.view !== option) {
       this.setState({
         view: option
       });
     }
   }
+
+const OpsList = function(props) {
+
+  return (
+
+    <Container>
+
+
+      <Row>
+
+
+        <Col xs="8">
+
+          {props.opportunities.map(function(opportunity, idx) {
+
+            return <Ops enroll={props.enroll} opportunity={opportunity} key={idx} />
+
+          })}
+
+        </Col>
+
+        <Col xs="4">
 
   render() {
     console.log(this.props)
@@ -55,7 +82,7 @@ class OpsList extends React.Component {
   }
 
 }
-//hi
+
 export default OpsList;
 
 
