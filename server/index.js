@@ -81,10 +81,12 @@ app.get('/auth/google', passport.authenticate('google', {
   scope: ['https://www.googleapis.com/auth/plus.login']
 }));
 
+
 app.get('/auth/google/callback', passport.authenticate('google', {
   successRedirect: '/',
   failureRedirect: '/'
 }));
+
 
 app.get('/main', (req, res) => {
   var sessionTest = ('user' in req) ? `*** SESSION EXISTS for ${req.session.passport.user.name}` : "*** NO SESSION ***";
@@ -97,7 +99,6 @@ app.get('/main', (req, res) => {
     console.log('userId org', req.session.name)
     res.status(200).send(req.session)
   }
-
 });
 
 app.post('/login', (req, res) => {
