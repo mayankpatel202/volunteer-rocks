@@ -25,29 +25,6 @@ class OpsList extends React.Component {
       });
     }
   }
-
-const OpsList = function(props) {
-
-  return (
-
-    <Container>
-
-
-      <Row>
-
-
-        <Col xs="8">
-
-          {props.opportunities.map(function(opportunity, idx) {
-
-            return <Ops enroll={props.enroll} opportunity={opportunity} key={idx} />
-
-          })}
-
-        </Col>
-
-        <Col xs="4">
-
   render() {
     console.log(this.props)
     return (
