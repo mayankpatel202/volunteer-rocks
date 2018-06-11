@@ -98,7 +98,10 @@ app.get('/main', (req, res) => {
   } else if ('userId' in req.session) {
     console.log('userId org', req.session.name)
     res.status(200).send(req.session)
+  } else {
+    res.status(401).end('false');
   }
+
 });
 
 app.post('/login', (req, res) => {
@@ -135,10 +138,11 @@ app.post('/opportunities', (req, res) => {
   axios.get(zipApiUrl)
     .then(response => {
       //console.log('From zipapi ' + response.data.zip_codes[0].zip_code);
-      retrieveFromDb.getZipCodeSearch(response.data.zip_codes, res);
+
+      retrieveFromDb.getZipCodeSearch(response.data.zip_codes, 5, res);
     }).catch(err => console.log('Err', err));
 
-  // retrieveFromDb.getOpportunities(5, res);
+  //retrieveFromDb.getOpportunities(5, res);
 });
 
 app.get('/opportunities/all', (req, res) => {

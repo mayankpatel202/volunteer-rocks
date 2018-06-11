@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Provider } from 'react-redux';
 import store from '../store.js';
 import axios from 'axios';
@@ -10,7 +10,7 @@ import Main from './Main.jsx';
 import NavBar from './NavBar.jsx';
 import LoadAllMarkers from './LoadAllMarkers.jsx';
 
-class App extends Component {
+class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -126,6 +126,7 @@ class App extends Component {
     e.preventDefault();
     axios.post('/opportunities', { zipcode: zipcode })
       .then((response) => {
+<<<<<<< HEAD
         console.log(response.data);
         this.setState({
           view: 'opportunities',
@@ -133,6 +134,13 @@ class App extends Component {
         });
 
         this.passDownOpps(1);
+=======
+          console.log("response from opportunity ",response.data);
+          this.setState({
+            view: 'opportunities',
+            opportunities: response.data,
+          });
+>>>>>>> merging
       })
       .catch((err) => {
         throw (err)

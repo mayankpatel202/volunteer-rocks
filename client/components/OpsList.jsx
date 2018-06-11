@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Ops from './Ops.jsx';
 
@@ -16,12 +17,8 @@ class OpsList extends React.Component {
     }
   }
 
-<<<<<<< HEAD
-  changeView(option) {
-=======
-
    changeView(option) {
->>>>>>> rebasing
+
     if (this.state.view !== option) {
       this.setState({
         view: option
