@@ -87,8 +87,6 @@ app.get('/auth/google/callback', passport.authenticate('google', {
 }));
 
 app.get('/main', (req, res) => {
-  console.log('This is user', req.user);
-  console.log('This is session', req.session)
   var sessionTest = ('user' in req) ? `*** SESSION EXISTS for ${req.session.passport.user.name}` : "*** NO SESSION ***";
   console.log(sessionTest);
 
