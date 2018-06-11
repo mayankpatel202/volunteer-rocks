@@ -54,8 +54,8 @@ class OpsList extends React.Component {
     );
   }
 
-};
-
+}
+//hi
 export default OpsList;
 
 
