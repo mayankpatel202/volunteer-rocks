@@ -64,8 +64,8 @@ class NavBar extends React.Component {
             {this.props.user}
           </DropdownToggle>
           <DropdownMenu right>
-            <DropdownItemn href="#" onClick={() => }>
-              My Opportunities
+            <DropdownItem>
+               <div onClick={() => this.props.myOppotunities()}>My Opportunities</div>
             </DropdownItem>
             <DropdownItem>
               <div onClick={() => this.props.changeView('loadAllMarkers')}>Map All</div>
@@ -78,28 +78,29 @@ class NavBar extends React.Component {
         </UncontrolledDropdown>
       </React.Fragment>
     ) : (
-          <React.Fragment>
-            <NavItem className="mr-auto">
-              <OrgSignupModal />
-            </NavItem>
-            <NavItem>
-              <LoginModal orginizationLoggedIn={this.props.orginizationLoggedIn} />
-            </NavItem>
-            <NavItem>
-              <Button outline color="primary">Sign Up</Button>{' '}
-            </NavItem>
-          </React.Fragment>
-        );
+      <React.Fragment>
+        <NavItem>
+          <OrgSignupModal />
+        </NavItem>
+        <NavItem pullleft="true">
+          <LoginModal orginizationLoggedIn={this.props.orginizationLoggedIn}/>
+        </NavItem>
+        <NavItem pullleft="true">
+          <Button outline color="primary">Sign Up</Button>{' '}
+        </NavItem>
+      </React.Fragment>
+    );
     return (
-      <Navbar color="white" light expand="md">
-        <NavbarBrand href="/">The Volunteers Rock</NavbarBrand>
-        <NavbarToggler onClick={this.toggle} />
-        <Collapse isOpen={this.state.isOpen} navbar>
-          <Nav className="ml-auto" navbar>
-            {navView}
-          </Nav>
-        </Collapse>
-      </Navbar>
+        <Navbar color="white" light expand="md">
+          <NavbarBrand href="/">The Volunteer Opportunity Seaching Place</NavbarBrand>
+          <NavbarToggler onClick={this.toggle} />
+          <Collapse isOpen={this.state.isOpen} navbar>
+            <Nav className="mr-auto pr-auto" navbar>
+              {navView}
+            </Nav>
+          </Collapse>
+        </Navbar>
+
     );
   }
 }
