@@ -35,10 +35,10 @@ class NavBar extends React.Component {
         </NavItem>
         <UncontrolledDropdown nav inNavbar>
           <DropdownToggle nav caret>
-            <img
-              src={this.props.user.picture}
-              alt={this.props.user.name}
-              className={'img-circle'} />
+          <img
+            src={this.props.user.picture}
+            alt={this.props.user.name}
+            className={'img-circle'}/>
           </DropdownToggle>
           <DropdownMenu right>
             <DropdownItem>
@@ -64,7 +64,7 @@ class NavBar extends React.Component {
             {this.props.user}
           </DropdownToggle>
           <DropdownMenu right>
-            <DropdownItem>
+            <DropdownItemn href="#" onClick={() => }>
               My Opportunities
             </DropdownItem>
             <DropdownItem>

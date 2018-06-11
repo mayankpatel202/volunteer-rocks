@@ -139,10 +139,9 @@ app.post('/opportunities', (req, res) => {
     .then(response => {
       //console.log('From zipapi ' + response.data.zip_codes[0].zip_code);
 
-      retrieveFromDb.getZipCodeSearch(response.data.zip_codes, 5, res);
+      retrieveFromDb.getZipCodeSearch(response.data.zip_codes, res);
     }).catch(err => console.log('Err', err));
 
-  //retrieveFromDb.getOpportunities(5, res);
 });
 
 app.get('/opportunities/all', (req, res) => {
