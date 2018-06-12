@@ -12,6 +12,18 @@ h6 {
   font-weight: 700;
 }
 
+.image1 {
+  background: url("../img/BeachCleaning.jpg")
+}
+
+.image2 {
+  background: url("../img/team.jpg")
+}
+
+.image3 {
+  background: url("../img/oldhands.jpg")
+}
+
 header.masthead {
   position: relative;
   background-color: #343a40;

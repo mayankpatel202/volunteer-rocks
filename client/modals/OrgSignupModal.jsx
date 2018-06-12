@@ -9,7 +9,7 @@ class OrgSignupModal extends React.Component {
       modal: false,
       form: {
         name: '',
-        street:'',
+        street: '',
         city: '',
         state: '',
         zipcode: '',
@@ -36,7 +36,7 @@ class OrgSignupModal extends React.Component {
     this.setState({ form: form }); // Replace state.form to form from above
   }
 
-  submitForm (form) {
+  submitForm(form) {
     console.log(form, 'newOrg signup form')
     axios.post('/signup', {
       name: form.name,
@@ -45,23 +45,24 @@ class OrgSignupModal extends React.Component {
         city: form.city,
         state: form.state,
         zipcode: form.zipcode
-        },
+      },
       phone: form.phone,
-      email: form.email
+      email: form.email,
+      password: form.password
     }) // Send form to server
-    .then(response => {
-      console.log('Form posted to server')
-      this.toggle
+      .then(response => {
+        console.log('Form posted to server')
+        this.toggle
 
-    })
-    .catch(err => console.log('Err', err));
+      })
+      .catch(err => console.log('Err', err));
   }
 
   render() {
     return (
       <React.Fragment>
-        <NavLink onClick={this.toggle}>Recruit Volunteers</NavLink>
-        <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+        <NavLink href="#" onClick={this.toggle}>Recruit Volunteers</NavLink>
+        <Modal size="lg" isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
           <ModalHeader toggle={this.toggle}>Create an Account for your Organization</ModalHeader>
           <ModalBody>
             <Form onSubmit={this.submitForm}>
@@ -79,72 +80,72 @@ class OrgSignupModal extends React.Component {
               <FormGroup row>
                 <Label for="street" sm={2}>Street Address</Label>
                 <Col sm={10}>
-                <Input
-                  type="text"
-                  name="street"
-                  id="street"
-                  value={this.state.form.street}
-                  onChange={this.updateInput} />
+                  <Input
+                    type="text"
+                    name="street"
+                    id="street"
+                    value={this.state.form.street}
+                    onChange={this.updateInput} />
                 </Col>
               </FormGroup>
               <FormGroup row>
                 <Label for="city" sm={2}>City</Label>
                 <Col sm={10}>
-                <Input
-                  name="city"
-                  type="text"
-                  value={this.state.form.city}
-                  onChange={this.updateInput} />
+                  <Input
+                    name="city"
+                    type="text"
+                    value={this.state.form.city}
+                    onChange={this.updateInput} />
                 </Col>
               </FormGroup>
               <FormGroup row>
                 <Label for="state" sm={2}>State</Label>
                 <Col sm={10}>
-                <Input
-                  name="state"
-                  type="text"
-                  value={this.state.form.state}
-                  onChange={this.updateInput} />
+                  <Input
+                    name="state"
+                    type="text"
+                    value={this.state.form.state}
+                    onChange={this.updateInput} />
                 </Col>
               </FormGroup>
               <FormGroup row>
                 <Label for="zipcode" sm={2}>Zip Code</Label>
                 <Col sm={10}>
-                <Input
-                  name="zipcode"
-                  type="text"
-                  value={this.state.form.zipcode}
-                  onChange={this.updateInput} />
+                  <Input
+                    name="zipcode"
+                    type="text"
+                    value={this.state.form.zipcode}
+                    onChange={this.updateInput} />
                 </Col>
               </FormGroup>
               <FormGroup row>
                 <Label for="number" sm={2}>Phone</Label>
                 <Col sm={10}>
-                <Input
-                  name="phone"
-                  type="text"
-                  value={this.state.form.phone}
-                  onChange={this.updateInput} />
+                  <Input
+                    name="phone"
+                    type="text"
+                    value={this.state.form.phone}
+                    onChange={this.updateInput} />
                 </Col>
               </FormGroup>
               <FormGroup row>
                 <Label for="email" sm={2}>E-mail</Label>
                 <Col sm={10}>
-                <Input
-                  name="email"
-                  type="text"
-                  value={this.state.form.email}
-                  onChange={this.updateInput} />
+                  <Input
+                    name="email"
+                    type="text"
+                    value={this.state.form.email}
+                    onChange={this.updateInput} />
                 </Col>
               </FormGroup>
               <FormGroup row>
                 <Label for="password" sm={2}>Password</Label>
                 <Col sm={10}>
-                <Input
-                  name="password"
-                  type="text"
-                  value={this.state.form.password}
-                  onChange={this.updateInput} />
+                  <Input
+                    name="password"
+                    type="text"
+                    value={this.state.form.password}
+                    onChange={this.updateInput} />
                 </Col>
               </FormGroup>
               <Button onClick={() => this.submitForm(this.state.form)}>Submit</Button>
